@@ -5,11 +5,11 @@ import { Outlet } from 'react-router-dom'
 
 const Root = () => {
   return (
-    <div>
+    <div className='grid grid-rows-layout w-full h-screen'>
         <Navbar/>
-        <Main>
+        <main className='px-8 py-2'>
             <Outlet/>
-        </Main>
+        </main>
         <Footer/>
     </div>
   )
