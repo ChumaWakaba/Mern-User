@@ -10,7 +10,7 @@ const Card = ({user, onDelete}) => {
             <p className='text-lg'><span className='font-semibold'>Age: </span>{age}</p>
             <p className='text-lg'><span className='font-semibold'>Email: </span>{email}</p>
             <div>
-                <Link to ={"/${_id}"} className='px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-800 my-4 mr-2'>Update</Link>
+                <Link to ={`/${_id}`} className='px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-800 my-4 mr-2'>Update</Link>
                 <button onClick={()=>onDelete(_id)} className='px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-800 my-4'>Delete</button>
             </div>
         </div>

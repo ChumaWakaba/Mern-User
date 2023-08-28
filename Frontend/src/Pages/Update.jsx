@@ -12,7 +12,7 @@ const Update = () => {
     age:'',
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -20,19 +20,20 @@ const Update = () => {
       ...prev,
       [name]: value,
     }));
-  }
+  };
 
   const getSingleUser = async ()=>{
     const response = await fetch(`http://localhost:8000/${id}`);
-    const result = response.json();
+    const result = await response.json();
 
     if(!response.ok)
     {
       setError(result.message);
     }
+
     if(response.ok)
     {
-      setError("");
+      setError('');
       setUserData({
         name: result.name,
         email: result.email,
@@ -41,15 +42,15 @@ const Update = () => {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getSingleUser();
   }, []);
 
-  const handleUpdate = async (e) =>{
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
     const response = await fetch(`http://localhost:8000/${id}`, {
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify(userData),
       headers: {
         'Content-Type': 'application/json',
@@ -60,7 +61,7 @@ const Update = () => {
 
     if (!response.ok)
     {
-      console.log(response.message);
+      console.log(result.message);
       setError(result.message);
     }
     if(response.ok)
@@ -73,10 +74,11 @@ const Update = () => {
       setUserData({
         name:'',
         email:'',
-        age:''
+        age:'',
       });
       navigate('/allPost');
     }
+    };
 
   return (
     <div>
@@ -106,7 +108,7 @@ const Update = () => {
         </div>
       </form>
     </div>
-  )
-}
-}
+  );
+};
+
 export default Update;
